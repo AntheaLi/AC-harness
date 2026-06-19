@@ -1,3 +1,3 @@
 # AC-harness
 
-![ACharness](assets/image.png)
+![ACharness](assets/image1.png)
