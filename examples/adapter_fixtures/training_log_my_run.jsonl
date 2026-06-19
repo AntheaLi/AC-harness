@@ -1,0 +1,5 @@
+{"step": 1000, "val_loss": 2.85, "tokens_seen": 4194304}
+{"step": 2000, "val_loss": 2.61, "tokens_seen": 8388608}
+{"step": 4000, "val_loss": 2.42, "tokens_seen": 16777216}
+{"step": 8000, "val_loss": 2.21, "tokens_seen": 33554432, "downstream_score": 0.31}
+{"step": 16000, "val_loss": 2.03, "tokens_seen": 67108864, "downstream_score": 0.42}

@@ -1,0 +1,21 @@
+{
+  "results": {
+    "mmlu": {
+      "acc,none": 0.666,
+      "acc_stderr,none": 0.004
+    },
+    "arc_challenge": {
+      "acc,none": 0.532,
+      "acc_norm,none": 0.586,
+      "acc_stderr,none": 0.014,
+      "acc_norm_stderr,none": 0.014
+    },
+    "piqa": {
+      "acc,none": 0.789,
+      "acc_norm,none": 0.793,
+      "acc_stderr,none": 0.009
+    }
+  },
+  "configs": {"task_manager_version": "0.4.4"},
+  "model_name": "meta-llama/Meta-Llama-3-8B"
+}

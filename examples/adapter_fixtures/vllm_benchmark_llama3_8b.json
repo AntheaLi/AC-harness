@@ -1,0 +1,19 @@
+{
+  "duration": 65.3,
+  "completed": 500,
+  "total_input_tokens": 132000,
+  "total_output_tokens": 95000,
+  "request_throughput": 7.65,
+  "request_goodput": 7.65,
+  "output_throughput": 1454.8,
+  "total_token_throughput": 3475.0,
+  "mean_ttft_ms": 102.3,
+  "median_ttft_ms": 95.1,
+  "p99_ttft_ms": 320.6,
+  "mean_tpot_ms": 14.7,
+  "median_tpot_ms": 14.1,
+  "p99_tpot_ms": 22.4,
+  "mean_itl_ms": 14.7,
+  "median_itl_ms": 14.1,
+  "p99_itl_ms": 22.4
+}

@@ -26,13 +26,13 @@ candidate set / research question
 pip install -e .
 ```
 
-The harness has no Python-level dependency on AC-Core — it consumes AC-Core's
+The harness has no Python-level dependency on AC-Core — it consumes AC-Core'
 JSON outputs (`CandidateSet`, `PredictedPareto`, `DeltaReport`, `CalibrationRequest`)
 and writes its own evidence. If you also want AC-Core for generating those
-inputs, install it from the AC compiler repo (`v1-release/`):
+inputs, install it from the AC compiler repo (`v0/`):
 
 ```bash
-pip install -e /path/to/ac-compiler   # gives you ac-compile / ac-delta-eval / ac-stress
+pip install -e git+https://github.com/AntheaLi/AC.git  # gives you ac-compile / ac-delta-eval / ac-stress
 ```
 
 Otherwise the bundled `examples/ac_core_outputs/llama_h100_long_chat/` is
@@ -51,10 +51,7 @@ ach decision-report --store runs/demo.sqlite --out runs/demo/DecisionStateReport
 
 ## examples
 
-`examples/real_published/llama3_family_h100/` contains a candidate set built
-entirely from public, citable benchmark numbers (Meta's Llama 3 / 3.1 model
-cards for quality, vLLM-blog ranges for throughput). It exercises every stage
-of the harness end-to-end with non-synthetic signal and requires no GPU.
+simple examples: `examples/real_published/llama3_family_h100/`
 
 ```bash
 ach init --store runs/real.sqlite
@@ -65,9 +62,20 @@ ach fit-calibration --store runs/real.sqlite --target throughput --out runs/real
 ach decision-report --store runs/real.sqlite --out runs/real/DecisionStateReport.md
 ```
 
-A `convert_lm_eval_output.py` shim in the same directory maps real
-lm-evaluation-harness output into the same JSON shape, so you can swap the
-published numbers for your own runs.
+
+## Plugging into an existing work loop
+
+AC-Harness is thin layer that sits beside existing training, eval, and benchmarking stack. It doesn't train, doesn't run kernels — it ingests results from whatever tooling you already use and owns the candidate set, evidence store, fitter, and decision report.
+
+Three reference adapters live in `ac_harness/adapters/`, each runnable as `python -m ac_harness.adapters.<name>`:
+
+| Adapter | Converts | Emits |
+|---|---|---|
+| `lm_eval` | lm-evaluation-harness JSON output | per-task `lmeval_*` scores + a `downstream_score` headline |
+| `vllm_serving` | vLLM `benchmark_serving.py` JSON | `throughput_tps`, TTFT / TBT / ITL medians and p99s |
+| `training_callback` | In-process buffer or CSV/JSONL training log | per-step `val_loss`, custom metrics, optional `downstream_score` |
+
+Sample fixtures in `examples/adapter_fixtures/` show the exact native output shape each adapter expects. See `docs/integration_guide.md` for the input contract, metric-naming conventions, candidate-ID mapping, and an end-to-end walkthrough of a typical lab study.
 
 
 ## Repo layout
