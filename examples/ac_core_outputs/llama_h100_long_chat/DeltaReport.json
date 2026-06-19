@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "baseline_id": "llama_baseline",
+  "deltas": [
+    {
+      "id": "llama_gqa8",
+      "delta": {"n_kv_heads": 8},
+      "rationale": "Reduce KV bandwidth pressure during decode."
+    },
+    {
+      "id": "llama_gqa4",
+      "delta": {"n_kv_heads": 4},
+      "rationale": "More aggressive KV reduction; quality risk."
+    }
+  ]
+}

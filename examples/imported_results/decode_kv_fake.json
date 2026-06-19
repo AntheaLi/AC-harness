@@ -1,0 +1,51 @@
+{
+  "benchmark_type": "attention_decode",
+  "hardware_id": "h100_sxm",
+  "runtime": "vllm",
+  "workload_id": "long_chat",
+  "notes": "Synthetic decode-KV microbench result for AC-Harness fixtures.",
+  "results": [
+    {
+      "candidate_id": "llama_baseline",
+      "metrics": {
+        "decode_kv_bandwidth_gbps": 720.0,
+        "latency_ms": 8.4,
+        "throughput_tps": 945.0
+      },
+      "units": {
+        "decode_kv_bandwidth_gbps": "GB/s",
+        "latency_ms": "ms",
+        "throughput_tps": "tok/s"
+      },
+      "seed": 0
+    },
+    {
+      "candidate_id": "llama_gqa8",
+      "metrics": {
+        "decode_kv_bandwidth_gbps": 1180.0,
+        "latency_ms": 6.1,
+        "throughput_tps": 1270.0
+      },
+      "units": {
+        "decode_kv_bandwidth_gbps": "GB/s",
+        "latency_ms": "ms",
+        "throughput_tps": "tok/s"
+      },
+      "seed": 0
+    },
+    {
+      "candidate_id": "llama_gqa4",
+      "metrics": {
+        "decode_kv_bandwidth_gbps": 1320.0,
+        "latency_ms": 5.6,
+        "throughput_tps": 1410.0
+      },
+      "units": {
+        "decode_kv_bandwidth_gbps": "GB/s",
+        "latency_ms": "ms",
+        "throughput_tps": "tok/s"
+      },
+      "seed": 0
+    }
+  ]
+}

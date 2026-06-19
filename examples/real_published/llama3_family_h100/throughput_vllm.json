@@ -1,0 +1,77 @@
+{
+  "benchmark_type": "serving_bench",
+  "hardware_id": "h100_sxm",
+  "runtime": "vllm",
+  "workload_id": "general_chat",
+  "notes": "Aggregate serving throughput on H100 SXM, transcribed as approximate order-of-magnitude numbers from public vLLM 0.6 benchmark posts and cloud-provider Llama-3 benchmark blogs (e.g. the vLLM perf-update post at https://blog.vllm.ai/2024/09/05/perf-update.html and the Ori / Azure H100 Llama-3 benchmark write-ups). These are not exact measurements; they are illustrative published ranges suitable for exercising the harness's calibration and frontier logic without GPUs. For exact numbers run vllm/benchmarks/benchmark_serving.py yourself and import that JSON.",
+  "results": [
+    {
+      "candidate_id": "llama3_8b",
+      "metrics": {
+        "throughput_tps": 3100.0,
+        "ttft_ms_p50": 95.0,
+        "tbt_ms_p50": 14.0,
+        "tp_degree": 1
+      },
+      "units": {
+        "throughput_tps": "tok/s",
+        "ttft_ms_p50": "ms",
+        "tbt_ms_p50": "ms",
+        "tp_degree": "GPUs"
+      },
+      "seed": 0,
+      "provenance": "vLLM 0.6 perf post + community H100 benchmarks (TP=1, fp16, sharegpt-like mix). Approximate."
+    },
+    {
+      "candidate_id": "llama3_70b",
+      "metrics": {
+        "throughput_tps": 720.0,
+        "ttft_ms_p50": 280.0,
+        "tbt_ms_p50": 38.0,
+        "tp_degree": 4
+      },
+      "units": {
+        "throughput_tps": "tok/s",
+        "ttft_ms_p50": "ms",
+        "tbt_ms_p50": "ms",
+        "tp_degree": "GPUs"
+      },
+      "seed": 0,
+      "provenance": "vLLM TP=4 on 4xH100 SXM (bf16). Approximate published range."
+    },
+    {
+      "candidate_id": "llama31_8b",
+      "metrics": {
+        "throughput_tps": 2950.0,
+        "ttft_ms_p50": 100.0,
+        "tbt_ms_p50": 14.5,
+        "tp_degree": 1
+      },
+      "units": {
+        "throughput_tps": "tok/s",
+        "ttft_ms_p50": "ms",
+        "tbt_ms_p50": "ms",
+        "tp_degree": "GPUs"
+      },
+      "seed": 0,
+      "provenance": "vLLM TP=1 on H100 SXM (bf16). Same architecture as Llama-3-8B; slight TTFT cost from longer RoPE. Approximate."
+    },
+    {
+      "candidate_id": "llama31_70b",
+      "metrics": {
+        "throughput_tps": 700.0,
+        "ttft_ms_p50": 295.0,
+        "tbt_ms_p50": 39.0,
+        "tp_degree": 4
+      },
+      "units": {
+        "throughput_tps": "tok/s",
+        "ttft_ms_p50": "ms",
+        "tbt_ms_p50": "ms",
+        "tp_degree": "GPUs"
+      },
+      "seed": 0,
+      "provenance": "vLLM TP=4 on 4xH100 SXM (bf16). Approximate published range."
+    }
+  ]
+}

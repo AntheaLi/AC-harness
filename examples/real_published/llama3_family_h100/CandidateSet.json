@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "baseline_id": "llama3_8b",
+  "hardware_id": "h100_sxm",
+  "runtime": "vllm",
+  "workload_id": "general_chat",
+  "notes": "Real, published-numbers candidate set for the Llama 3 family on H100 SXM. Quality figures are Meta's official pretrained model-card numbers; throughput figures are approximate ranges drawn from the vLLM 0.6 perf blog and public TRT-LLM / cloud-provider benchmark posts. Use this fixture to exercise the harness end-to-end with non-synthetic signal without needing a GPU.",
+  "candidates": [
+    {
+      "id": "llama3_8b",
+      "candidate_metadata": {
+        "family": "llama3",
+        "params_b": 8,
+        "n_layers": 32,
+        "n_heads": 32,
+        "n_kv_heads": 8,
+        "d_model": 4096,
+        "context_length": 8192,
+        "hf_id": "meta-llama/Meta-Llama-3-8B"
+      },
+      "changed_fields": {}
+    },
+    {
+      "id": "llama3_70b",
+      "baseline_id": "llama3_8b",
+      "candidate_metadata": {
+        "family": "llama3",
+        "params_b": 70,
+        "n_layers": 80,
+        "n_heads": 64,
+        "n_kv_heads": 8,
+        "d_model": 8192,
+        "context_length": 8192,
+        "hf_id": "meta-llama/Meta-Llama-3-70B"
+      },
+      "changed_fields": {
+        "params_b": 70,
+        "n_layers": 80,
+        "n_heads": 64,
+        "d_model": 8192
+      }
+    },
+    {
+      "id": "llama31_8b",
+      "baseline_id": "llama3_8b",
+      "candidate_metadata": {
+        "family": "llama3.1",
+        "params_b": 8,
+        "n_layers": 32,
+        "n_heads": 32,
+        "n_kv_heads": 8,
+        "d_model": 4096,
+        "context_length": 131072,
+        "rope_scaling": "llama3",
+        "hf_id": "meta-llama/Meta-Llama-3.1-8B"
+      },
+      "changed_fields": {
+        "context_length": 131072,
+        "rope_scaling": "llama3"
+      }
+    },
+    {
+      "id": "llama31_70b",
+      "baseline_id": "llama3_8b",
+      "candidate_metadata": {
+        "family": "llama3.1",
+        "params_b": 70,
+        "n_layers": 80,
+        "n_heads": 64,
+        "n_kv_heads": 8,
+        "d_model": 8192,
+        "context_length": 131072,
+        "rope_scaling": "llama3",
+        "hf_id": "meta-llama/Meta-Llama-3.1-70B"
+      },
+      "changed_fields": {
+        "params_b": 70,
+        "n_layers": 80,
+        "n_heads": 64,
+        "d_model": 8192,
+        "context_length": 131072,
+        "rope_scaling": "llama3"
+      }
+    }
+  ]
+}

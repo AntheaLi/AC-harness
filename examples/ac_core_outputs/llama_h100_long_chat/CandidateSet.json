@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "baseline_id": "llama_baseline",
+  "hardware_id": "h100_sxm",
+  "runtime": "vllm",
+  "workload_id": "long_chat",
+  "notes": "Synthetic AC-Core CandidateSet for AC-Harness fixtures. Llama-like baseline; GQA reduction + KV-quant deltas.",
+  "candidates": [
+    {
+      "id": "llama_baseline",
+      "candidate_metadata": {"family": "llama", "n_layers": 32, "n_heads": 32, "n_kv_heads": 32, "d_model": 4096},
+      "changed_fields": {}
+    },
+    {
+      "id": "llama_gqa8",
+      "baseline_id": "llama_baseline",
+      "candidate_metadata": {"family": "llama"},
+      "changed_fields": {"n_kv_heads": 8},
+      "ac_core_prediction_id": "pred_llama_gqa8_h100_long_chat"
+    },
+    {
+      "id": "llama_gqa4",
+      "baseline_id": "llama_baseline",
+      "candidate_metadata": {"family": "llama"},
+      "changed_fields": {"n_kv_heads": 4},
+      "ac_core_prediction_id": "pred_llama_gqa4_h100_long_chat"
+    },
+    {
+      "id": "llama_gqa8_kvfp8",
+      "baseline_id": "llama_baseline",
+      "candidate_metadata": {"family": "llama"},
+      "changed_fields": {"n_kv_heads": 8, "kv_quant": "fp8"},
+      "ac_core_prediction_id": "pred_llama_gqa8_kvfp8_h100_long_chat",
+      "compiler_speculative_field": "harness_should_tolerate_this"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "hardware_id": "h100_sxm",
+  "runtime": "vllm",
+  "requested_kernels": ["gemm_bf16", "attention_decode", "kv_read_bw"],
+  "notes": "AC-Core wants throughput corrections for the above kernels on this hardware/runtime."
+}

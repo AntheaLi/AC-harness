@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "hardware_id": "h100_sxm",
+  "runtime": "vllm",
+  "workload_id": "long_chat",
+  "notes": "Synthetic predicted Pareto produced by AC-Core (compile-time prior). Harness must not treat these as observed.",
+  "points": [
+    {
+      "id": "pred_llama_baseline_h100_long_chat",
+      "candidate_id": "llama_baseline",
+      "hardware_id": "h100_sxm",
+      "runtime": "vllm",
+      "workload_id": "long_chat",
+      "predicted_metrics": {"throughput_tps": 950.0, "ttft_ms": 120.0, "quality_score": 0.80},
+      "predicted_bottlenecks": ["decode_kv"],
+      "risk_label": "safe"
+    },
+    {
+      "id": "pred_llama_gqa8_h100_long_chat",
+      "candidate_id": "llama_gqa8",
+      "hardware_id": "h100_sxm",
+      "runtime": "vllm",
+      "workload_id": "long_chat",
+      "predicted_metrics": {"throughput_tps": 1320.0, "ttft_ms": 95.0, "quality_score": 0.79},
+      "predicted_bottlenecks": ["decode_kv"],
+      "risk_label": "safe"
+    },
+    {
+      "id": "pred_llama_gqa4_h100_long_chat",
+      "candidate_id": "llama_gqa4",
+      "hardware_id": "h100_sxm",
+      "runtime": "vllm",
+      "workload_id": "long_chat",
+      "predicted_metrics": {"throughput_tps": 1480.0, "ttft_ms": 88.0, "quality_score": 0.74},
+      "predicted_bottlenecks": ["decode_kv"],
+      "risk_label": "risky"
+    },
+    {
+      "id": "pred_llama_gqa8_kvfp8_h100_long_chat",
+      "candidate_id": "llama_gqa8_kvfp8",
+      "hardware_id": "h100_sxm",
+      "runtime": "vllm",
+      "workload_id": "long_chat",
+      "predicted_metrics": {"throughput_tps": 1610.0, "ttft_ms": 86.0, "quality_score": 0.77},
+      "predicted_bottlenecks": ["decode_kv", "kv_quant"],
+      "risk_label": "research"
+    }
+  ]
+}

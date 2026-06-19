@@ -1,0 +1,69 @@
+{
+  "benchmark_type": "lm_eval",
+  "hardware_id": "h100_sxm",
+  "runtime": "lm_eval_harness",
+  "workload_id": "general_chat",
+  "notes": "Quality measurements transcribed from Meta's official Llama 3 / 3.1 model cards (pretrained, 5-shot MMLU macro and 25-shot ARC-Challenge unless otherwise noted). Sources: https://github.com/meta-llama/llama3/blob/main/MODEL_CARD.md and https://github.com/meta-llama/llama-models/blob/main/models/llama3_1/MODEL_CARD.md. n=1 (single published score, no variance reported).",
+  "results": [
+    {
+      "candidate_id": "llama3_8b",
+      "metrics": {
+        "mmlu_5shot_macro": 0.666,
+        "arc_challenge_25shot": 0.786,
+        "commonsense_qa_7shot": 0.726,
+        "downstream_score": 0.666
+      },
+      "units": {
+        "mmlu_5shot_macro": "accuracy",
+        "arc_challenge_25shot": "accuracy",
+        "commonsense_qa_7shot": "accuracy",
+        "downstream_score": "accuracy"
+      },
+      "seed": 0,
+      "provenance": "Meta Llama 3 model card (pretrained, 8B). downstream_score alias = MMLU for the harness's quality_task bucket."
+    },
+    {
+      "candidate_id": "llama3_70b",
+      "metrics": {
+        "mmlu_5shot_macro": 0.795,
+        "arc_challenge_25shot": 0.930,
+        "commonsense_qa_7shot": 0.838,
+        "downstream_score": 0.795
+      },
+      "units": {
+        "mmlu_5shot_macro": "accuracy",
+        "arc_challenge_25shot": "accuracy",
+        "commonsense_qa_7shot": "accuracy",
+        "downstream_score": "accuracy"
+      },
+      "seed": 0,
+      "provenance": "Meta Llama 3 model card (pretrained, 70B). downstream_score alias = MMLU for the harness's quality_task bucket."
+    },
+    {
+      "candidate_id": "llama31_8b",
+      "metrics": {
+        "mmlu_5shot_macro": 0.694,
+        "downstream_score": 0.694
+      },
+      "units": {
+        "mmlu_5shot_macro": "accuracy",
+        "downstream_score": "accuracy"
+      },
+      "seed": 0,
+      "provenance": "Meta Llama 3.1 model card (pretrained, 8B). ARC-Challenge and CSQA omitted to demonstrate the harness flagging partial quality coverage."
+    },
+    {
+      "candidate_id": "llama31_70b",
+      "metrics": {
+        "mmlu_5shot_macro": 0.836,
+        "downstream_score": 0.836
+      },
+      "units": {
+        "mmlu_5shot_macro": "accuracy",
+        "downstream_score": "accuracy"
+      },
+      "seed": 0,
+      "provenance": "Meta Llama 3.1 model card (pretrained, 70B)."
+    }
+  ]
+}
