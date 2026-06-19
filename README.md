@@ -29,7 +29,7 @@ pip install -e .
 The harness has no Python-level dependency on AC-Core — it consumes AC-Core'
 JSON outputs (`CandidateSet`, `PredictedPareto`, `DeltaReport`, `CalibrationRequest`)
 and writes its own evidence. If you also want AC-Core for generating those
-inputs, install it from the AC compiler repo (`v0/`):
+inputs, install it from the AC compiler repo (`v0`):
 
 ```bash
 pip install -e git+https://github.com/AntheaLi/AC.git  # gives you ac-compile / ac-delta-eval / ac-stress
