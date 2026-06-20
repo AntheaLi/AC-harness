@@ -38,7 +38,7 @@ pip install -e git+https://github.com/AntheaLi/AC.git  # gives you ac-compile / 
 Otherwise the bundled `examples/ac_core_outputs/llama_h100_long_chat/` is
 enough to run the quick start below end-to-end.
 
-## Quick start (matches §16 of the spec)
+## Quick start
 
 ```bash
 ach init --store runs/demo.sqlite
@@ -83,7 +83,6 @@ Sample fixtures in `examples/adapter_fixtures/` show the exact native output sha
 ```
 .
 ├── README.md
-├── LICENSE                 Apache-2.0
 ├── pyproject.toml
 ├── ac_harness/             the package (ingest, planner, executor, fitter,
 │                           evaluator, decision, store, benchmarks, cli)
